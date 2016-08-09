@@ -8,10 +8,9 @@ class SessionsController < ApplicationController
       params[:user][:username],
       params[:user][:password]
       )
-      # debugger
     if @user
       login(@user)
-      redirect_to new_user_url
+      redirect_to goals_url
     else
       flash[:errors] = ["user credentials invalid"]
       render :new
@@ -23,9 +22,4 @@ class SessionsController < ApplicationController
     redirect_to new_session_url
   end
 
-  # private
-  #
-  # def user_params
-  #   params.require(:user).permit(:username, :password)
-  # end
 end

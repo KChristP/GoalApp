@@ -1,0 +1,11 @@
+<%= @user.username %>
+
+<ul>
+<% @user.goals.where(privacy: false).each do |goal| %>
+  <li>Start Date: <%= goal.created_at %></li>
+  <li><%= goal.title %></li>
+  <li><%= goal.body %></li>
+  <li><%= goal.status %></li>
+  <br>
+<%end%>
+</ul>
