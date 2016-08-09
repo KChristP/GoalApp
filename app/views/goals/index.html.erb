@@ -1,0 +1,18 @@
+<h1>All Goals</h1>
+
+<ul>
+
+  <% @goals.each do |goal| %>
+      <li><%= goal.title%></li>
+      <br>
+      <%= goal.user.username %>
+      <br>
+      <%= goal.body%>
+      <%= button_to "Delete Goal", goal_url(goal), method: :delete %>
+      <br>
+      <br>
+    <%end%>
+</ul>
+
+
+<%= link_to "Add Goal", new_goal_url %>

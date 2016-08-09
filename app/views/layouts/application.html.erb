@@ -8,6 +8,16 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <label> Logged in: <%= current_user.username if current_user %></label>
+  <%= button_to "sign out", session_url, method: :delete %>
+<%else%>
+  <%= button_to "signin", new_session_url, method: :get %>
+  <%= button_to "signup", new_user_url, method: :get %>
+<%end%>
+
+<%= render "shared/errors" %>
+
 <%= yield %>
 
 </body>
